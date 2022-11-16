@@ -41,32 +41,35 @@ getCSV();
 
 // あ、htmlの方どうなってましたっけ？ひらけるようにしました
 
-const searchInput = document.getElementById('input');//ok
-const htmlWrite = document.getElementById('result');//私見てるだけになってる()
+window.addEventListener('DOMContentLoaded', function(){ // これでこの中の処理がHTMLの要素が全部読み込まれてから動くことになりますok
 
-function inputFilter(){
-    // 中身を書いていきますｗ
-    // やること：
-    // 1. inputの今の内容を取得
-    let inputValue = searchInput.value;
+    const searchInput = document.getElementById('input');//ok
+    const htmlWrite = document.getElementById('result');//私見てるだけになってる()
 
-    // 2. さっきの関数の返り値（allDataに入っている）の特定の値と照合・絞り込み
-    // ここで確か領域さんのコードを使う
-    let filtered = allData.filter(
-        ([name, symbol]) => name.includes(inputValue)
-    );
-    
-    // 3. その結果をresultのdivに入れる
-    // じゃあこの部分やってみますか？あああああ基本的には30行目のコピペですが（ではない）
-    htmlWrite.insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div>`).join(''));
-    // ただし変数名が違うので…はい、それを…🆗これで一回試してみるとどうでしょう
-    //やりますね
-    //コメントついたまま走らせます
-    // まず動くかどうかから（ちょっとJS得意でないので心配😣）
-} 
+    function inputFilter(){
+        // 中身を書いていきますｗ
+        // やること：
+        // 1. inputの今の内容を取得
+        let inputValue = searchInput.value;
 
-searchInput.addEventListener('input', inputFilter); //
-//
+        // 2. さっきの関数の返り値（allDataに入っている）の特定の値と照合・絞り込み
+        // ここで確か領域さんのコードを使う
+        let filtered = allData.filter(
+            ([name, symbol]) => name.includes(inputValue)
+        );
+        
+        // 3. その結果をresultのdivに入れる
+        // じゃあこの部分やってみますか？あああああ基本的には30行目のコピペですが（ではない）
+        htmlWrite.insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div>`).join(''));
+        // ただし変数名が違うので…はい、それを…🆗これで一回試してみるとどうでしょう
+        //やりますね
+        //コメントついたまま走らせます
+        // まず動くかどうかから（ちょっとJS得意でないので心配😣）
+    } 
 
+    searchInput.addEventListener('input', inputFilter); //
+    //凡ミスでした、HTMLが読み込まれる前に処理を書いてしまった…No...
+    //走ります
 
+});
 
