@@ -17,7 +17,7 @@ function convertCSVtoArray(str){
     }
     console.log(result);
 
-    const arrList= result[1][2],[1][3];
+    const arrList= result[1][2];
     console.log(arrList);
 }
  
