@@ -23,7 +23,7 @@ function convertCSVtoArray(str){
     let arrList = result.slice(1).map(e=>e.slice(1))
     
     let htmlWrite=document.getElementById('result');
-    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div>`).join(''));
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div></div>`).join(''));
 
     return arrList; // 表に使う元データを返す感じ？OK
 
@@ -74,17 +74,6 @@ window.addEventListener('DOMContentLoaded', function(){ // これでこの中の
 
 
     document.getElementById('input').addEventListener('input', inputFilter); //
-    //入力して消すと増える
-    // その通りです、それを回避するにはどうしたらいいでしょう？（）
-//消して書き直す?正解
-//さあどう消すか
-// いったんこれで動かしますか？消す機能も入れてからにしますか？
-//消すのくらいは自分で書きたいけどわからん
-//今なんか調べたんですけど、最新（今年入ったAPI？）のやり方はこれっぽいです
-// https://developer.mozilla.org/ja/docs/Web/API/Element/replaceChildren
-// 最初は一回消してからやるつもりだったんですが、↑を使うと簡単に毎回入れ替えられるらしい
-//ひぃ
-// あ、でも普通に消した方が簡単ですかね（技術レベル的な意味で）
-//うう普通に消しましょう...
+    
 });
 
