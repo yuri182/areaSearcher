@@ -1,4 +1,3 @@
-
 function getCSV(){
     var req = new XMLHttpRequest();
     req.open("get", "rooms.csv", true);
