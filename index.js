@@ -18,7 +18,7 @@ function convertCSVtoArray(str){
     console.log(result);
 
     const arrList= result.slice(1).map(e=>e.slice(1));
-    console.log(arrList);
+    document.write(arrList);
 }
  
 getCSV(); 
