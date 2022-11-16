@@ -15,10 +15,12 @@ function convertCSVtoArray(str){
     for(var i=0;i<tmp.length;++i){
         result[i] = tmp[i].split(',');
     }
-    console.log(result)
+    console.log(result);
+    
+    let arrList= result.slice(2);
+    console.log(arrList);
 }
  
 getCSV(); 
 
-let arrList= result.slice(2);
-console.log(arrList);
+
