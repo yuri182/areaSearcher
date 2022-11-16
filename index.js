@@ -52,10 +52,13 @@ function inputFilter(){
     );
     
     // 3. その結果をresultのdivに入れる🆗なんか変な感じw一応これで動くと思いますが、後でもっと綺麗に書き直せます
-    //とえいあえず走らせてうまく行ったら明日にしようかな。。
+    //とえいあえず走らせてうまく行ったら明日にしようかな。。🆗
+    //ぎゃああああ走った〜〜〜！！！（マクドの放送中止になったくっそうるさいCM）
+    // www
+    //意図せずともその反応になってしまった🎉🎉🎉🎉🎉
     // じゃあこの部分やってみますか？あああああ基本的には30行目のコピペですが（ではない）
     document.getElementById('result').replaceChildren();   // ←この行に80行目の関数を使って1行書くと消えます！残念ながらそっちではないです…いいえそれは要素ではないです
-    document.getElementById('result').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div>`).join(''));
+    document.getElementById('result').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div></div>`).join(''));
     // ただし変数名が違うので…はい、それを…🆗これで一回試してみるとどうでしょう
     //やりますね
     //コメントついたまま走らせます
