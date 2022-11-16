@@ -1,5 +1,3 @@
-let arrList= result.slice(0,2);
-console.log(arrList);
 
 function getCSV(){
     var req = new XMLHttpRequest();
@@ -23,3 +21,5 @@ function convertCSVtoArray(str){
  
 getCSV(); 
 
+let arrList= result.slice(2);
+console.log(arrList);
