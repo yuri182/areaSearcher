@@ -19,3 +19,6 @@ function convertCSVtoArray(str){
 }
  
 getCSV(); 
+
+let arrList= result.slice(0,2);
+console.log(arrList);
