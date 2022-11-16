@@ -65,8 +65,8 @@ function inputFilter(){
     // まず動くかどうかから（ちょっとJS得意でないので心配😣）
 } 
 
-// searchInput.oninput = inputFilter; //なんでoninputは全部小文字なんだｗ
-searchInput.addEventListener("input", inputFilter); // これでどうでしょうか（上のは古かったっぽい）走らせます
+searchInput.addEventListener('input', inputFilter); //
+//
 
 
 
