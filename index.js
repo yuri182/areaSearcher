@@ -18,7 +18,8 @@ function convertCSVtoArray(str){
     console.log(result);
 
     const arrList= result.slice(1).map(e=>e.slice(1));
-    document.write(arrList);
+    let htmlWrite=document.getElementById('result');
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList);
 }
  
 getCSV(); 
