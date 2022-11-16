@@ -62,9 +62,11 @@ function inputFilter(){
     // ただし変数名が違うので…はい、それを…🆗これで一回試してみるとどうでしょう
     //やりますね
     //コメントついたまま走らせます
+    // まず動くかどうかから（ちょっとJS得意でないので心配😣）
 } 
 
-searchInput.oninput = inputFilter; // たぶんこう、これでinput欄が変化した際にinputFilterが走る設定ほお
+// searchInput.oninput = inputFilter; //なんでoninputは全部小文字なんだｗ
+searchInput.addEventListener("input", inputFilter); // これでどうでしょうか（上のは古かったっぽい）走らせます
 
 
 
