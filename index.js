@@ -51,8 +51,10 @@ function inputFilter(){
         ([name, symbol]) => name.includes(inputValue)
     );
     
-    // 3. その結果をresultのdivに入れる
+    // 3. その結果をresultのdivに入れる🆗なんか変な感じw一応これで動くと思いますが、後でもっと綺麗に書き直せます
+    //とえいあえず走らせてうまく行ったら明日にしようかな。。
     // じゃあこの部分やってみますか？あああああ基本的には30行目のコピペですが（ではない）
+    document.getElementById('result').replaceChildren();   // ←この行に80行目の関数を使って1行書くと消えます！残念ながらそっちではないです…いいえそれは要素ではないです
     document.getElementById('result').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div>`).join(''));
     // ただし変数名が違うので…はい、それを…🆗これで一回試してみるとどうでしょう
     //やりますね
@@ -75,5 +77,11 @@ window.addEventListener('DOMContentLoaded', function(){ // これでこの中の
 //さあどう消すか
 // いったんこれで動かしますか？消す機能も入れてからにしますか？
 //消すのくらいは自分で書きたいけどわからん
+//今なんか調べたんですけど、最新（今年入ったAPI？）のやり方はこれっぽいです
+// https://developer.mozilla.org/ja/docs/Web/API/Element/replaceChildren
+// 最初は一回消してからやるつもりだったんですが、↑を使うと簡単に毎回入れ替えられるらしい
+//ひぃ
+// あ、でも普通に消した方が簡単ですかね（技術レベル的な意味で）
+//うう普通に消しましょう...
 });
 
