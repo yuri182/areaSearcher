@@ -10,7 +10,7 @@ function getCSV(){
  
 function convertCSVtoArray(str){ 
     var result = []; 
-    var tmp = str.split("\n"); 
+    var tmp = str.split("\r\n"); 
 
     for(var i=0;i<tmp.length;++i){
         result[i] = tmp[i].split(',');
