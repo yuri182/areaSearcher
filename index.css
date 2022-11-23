@@ -8,6 +8,7 @@
 .arr{
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding: 5px;
 }
 .arr:nth-child(2n-1){
