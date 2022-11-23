@@ -23,7 +23,7 @@ function convertCSVtoArray(str){
     let arrList = result.slice(1).map(e=>e.slice(1))
     
     let htmlWrite=document.getElementById('result');
-    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum">${e[1]}</div></div>`).join(''));
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum${sortColor(e[1])}">${e[1]}</div></div>`).join(''));
 
     return arrList; // 表に使う元データを返す感じ？OK
 
@@ -39,7 +39,13 @@ function inputFilter(){
     // 2. さっきの関数の返り値（allDataに入っている）の特定の値と照合・絞り込み
     // ここで確か領域さんのコードを使う
     let filtered = allData.filter(
-        ([name, symbol]) => name.includes(inputValue)
+        ([name, symbol]) => name.includes(inputValue.toUpperCase())//🆗name.includes()が何の働きをしているかわかりますか？ここですよねはいここで大文字小文字変換の関数かますと一発です（たぶん）できそうですか？
+        // 含んでるとかそんな感じですよねはい、どど.toUpper云々入れりゃいいんだ○.includes(×)が、○が×を含んでいるという意味なので…
+//あああああできそう42行目をそのまま変えるだけでいいです（逆に新しい行を追加してしまうとこの場合文法違反なので…）
+//入れ子が多いと本当に入れていいのかわからなくて不安になる そういう感想は初めてですね草新鮮な感性でいいと思います😇あああ
+//当ててみますか。ついでに検索前の方にも例のアレ打ち込んでおいたので💯
+//というか順番関係ないのか
+// つ toLowerCase() ← 括弧の中身は空でそれでもいいですよ、csvの中身はあくまでもUpperCaseなのでtoUpperCase()かとどちらでも結果的には同じになりますならいいや（想定していたのは、両方とも強制変換するということでしたが、形式が決まっているなら片方だけで楽をしてもいいと思います）
     );
     
     // 3. その結果をresultのdivに入れる
@@ -56,6 +62,10 @@ function inputFilter(){
 //グローバルな値だとかなんだとかってやつですかね。そんな感じです。ok()の中に何かがあると、それがその関数の中で読み替えられることになります。e[0]を入れたらe[0]がfigureになって、e[1]とか"MOji"とか何でも入れたものが
 //説明聞くより先に当ててきますか。動くか検証しないと。🆗
 //コメントすげえ量あるjswww文芸的プログラミング（いいえ）（はい）
+//できてるっぽいですね。スタイル変えたCSSとかあると見やすいかも…
+//あれ?あたってます??少なくとも<div class="areaNum a">みたいにはなってますうちのなってないwChromeですか？Chromiumブラウザではある(Brave?)強制リロード（スーパーリロード）してみてくださいしてますキャッシュ削除もしてますcmd+shift+r/deleteしまくってるあ、おうふ...もしかして検索欄に何もいれてない？26行目にこの処理入れてないので初期状態では出ないです。一度絞り込むと…ですね。
+//あとすぐできればやりたいんですけど、input(searchのボックス)に入力した文字、大文字小文字関係なくできません?あってんのに引っかからない感じがキモい...
+// その場合は、理屈は簡単なんですが少し修正する量が多そうですねえぇ...あくまで表示上は大文字小文字を変えないということですよね？まあ0番目の値でしかヒットしないでしょうからそんなに影響はないでしょうけどね...撮影スタジオAとかくらいかあ、でも今見たら1行直せばいけそう？?!42行目を直せば
 function sortColor(figure){
     //取得する取得はまず入力がないと始まらないので、上の括弧の中に適当な変数名を…okとりあえず仮置の名前にします
     // 括弧に入れた名前はこの関数内でしか有効でないので、名前は勝手に決めていいです...🆗これで入力されてくる値はこの関数の中でfigureと呼ばれることになるので、それを使っていきましょうok
