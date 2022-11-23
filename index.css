@@ -17,23 +17,23 @@
     margin-left: 5px;
 }
 .areaNum.a,.areaNum.b{
-    background-color: cmyk(0,67,59,0);
+    background-color: #ed7459;
 }
 .areaNum.c{
-    background-color: cmyk(63,50,0,0);
+    background-color: #5abc97;
 }
 .areaNum.d,.areaNum.e{
-    background-color: cmyk(42,0,86,0);
+    background-color: #a5cd43;
 }
 .areaNum.f,.areaNum.g{
-    background-color: cmyk(0,77,4,0);
+    background-color: #e95b98;
 }
 .areaNum.p{
-    background-color: cmyk(38,38,4,0);
+    background-color: #aa9fc8;
 }
 .areaNum.q{
-    background-color: cmyk(0,35,63,0);
+    background-color: #f8b866;
 }
 .areaNum.r{
-    background-color: cmyk(56,6,7,0);
+    background-color: #6dc0e2;
 }
