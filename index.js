@@ -23,7 +23,7 @@ function convertCSVtoArray(str){
     let arrList = result.slice(1).map(e=>e.slice(1))
     
     let htmlWrite=document.getElementById('result');
-    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum${sortColor(e[1])}">${e[1]}</div></div>`).join(''));
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="areaNum${sortColor(e[1])}">${e[1]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
 
     return arrList; // 表に使う元データを返す感じ？OK
 
@@ -51,7 +51,7 @@ function inputFilter(){
     
     // 3. その結果をresultのdivに入れる
     document.getElementById('result').replaceChildren();
-    document.getElementById('result').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNameJp">${e[0]}</div><div class="areaNum${sortColor(e[1])}">${e[1]}</div></div>`).join(''));
+    document.getElementById('result').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="areaNum${sortColor(e[1])}">${e[1]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
 }
 //returnをぶち込むんですよね ←とは？47行目のどこかにreturnをぶち込むんですよね?あれ...?
 // returnは、関数からこれを出すよという宣言で、その関数の外では使いません
@@ -121,7 +121,19 @@ function smartSortColor(str) { // おまけ: 上のsortColorの1行で終わる�
     return ` ${[...str][0].toLowerCase()}`;
 }
 //一応関数は呼び出さなければ何もしないので置いてあっても無害です（JSでは）
-
+//当ててます⌛なかなか当たらないｗあのタイムラインリアルタイム更新しないんですねちょっと遅延があるみたいですね当たらな...
+//おそくね?
+// Canceling since a higher priority waiting request for 'pages build and deployment @ main' exists
+// 一回負荷が高すぎて失敗、最初からやり直しっぽいです今当たりましたねプログレスにはいっった。
+//更新かけすぎて落ちた?他の人も使ってるので鯖の事情かもしれないですなるほど
+//今後は絞り込みの方法増やしたりしたい。条件検索みたいな感じのあれみたいな()先頭一致とか後方一致とかのボタンつけたりですか？
+//というよりタグ検索みたいな()
+//ボックスがあって、その下に大雑把に絞るタグみたいなのを配置しておいて、それ押すとそれっぽいのだけふるわれるみたいな
+//なるほど、まあ基本的にはこれの要領でそんなに難しくはないはずです（データがあまりにも大量でなければ）←いっても150くらいかと余裕ですね。別に辞書じゃないのでｗ👈
+//ですね...w
+//githubって差分をとっておけたりします?コメント残したままのを公開するとあれな気もする。githubそれ自体が差分をとっておくための道具みたいなものなのであｗそうなのか
+// 今までの全部履歴残ってます、毎回上げるたびに。
+//なんかカラーコードみたいなやつなんだろうとおもったらそれがそれなのか←？もしかして：ハッシュそ。桁数全然違ったわ
 window.addEventListener('DOMContentLoaded', function(){ // これでこの中の処理がHTMLの要素が全部読み込まれてから動くことになりますok
 
     getCSV();

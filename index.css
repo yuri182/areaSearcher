@@ -14,7 +14,9 @@
     background-color: #f0f0f0;
 }
 .areaNum{
-    margin-left: 5px;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
 }
 .areaNum.a,.areaNum.b{
     background-color: #ed7459;
