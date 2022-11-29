@@ -18,7 +18,7 @@ function convertCSVtoArray(str){
         result[i] = tmp[i].split(',');
     }
 
-    // let filter=document.getElementById('input');
+    // let filter=document.getElementById('box');
 
     let arrList = result.slice(1).map(e=>e.slice(1))
     
@@ -34,7 +34,7 @@ function convertCSVtoArray(str){
 function inputFilter(){
     // やること：
     // 1. inputの今の内容を取得
-    let inputValue = document.getElementById('input').value;
+    let inputValue = document.getElementById('box').value;
 
     // 2. さっきの関数の返り値（allDataに入っている）の特定の値と照合・絞り込み
     // ここで確か領域さんのコードを使う
@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', function(){ // これでこの中の
 
 
 
-    document.getElementById('input').addEventListener('input', inputFilter); //
+    document.getElementById('box').addEventListener('input', inputFilter); //
     
 });
 //e[1]にはいってるABCDEF...なんですが。e[1]の内容を取得して、Aだったらclass="a"を挿入するみたいなことをして、
