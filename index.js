@@ -117,7 +117,7 @@ function radioFilterProgram() { // ここに適当な名前の関数と処理を
 
 //fillBoxに入れられた文字によってフィルし表示させるもの
 function inputFilter(){    //fillBoxの今の内容を取得
-    let inputValue = document.getElementById('fillBox').value;
+    let inputValue = document.getElementById('strFilter').value;
     let radioValue = radioFilterProgram();
 
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
@@ -125,7 +125,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
         //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
         ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
     ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明
-    //うごかないというかまだ完成してないのか
+    //うごかないというかまだ完成してないのか名前が昨日のままでしたねほんとだ(もしかしてバグの原因これ?)
     // すみません、さっき配列を返す関数を作ったので、配列の値の数だけ回る処理をかけようと思います
     //今日こそ何もやってない私(名前変えただけ)←え、関数1個書いた←うーん:confused_face:
     //とりあえず走らせますか...あ、HTMLの方checkedを1個付けないと出だしでエラー起こすかも
