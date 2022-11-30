@@ -93,11 +93,11 @@ function radioFilterProgram() { // ここに適当な名前の関数と処理を
     let roomGenre = document.getElementById('radioFilter').elements['roomGenre'].value;
     //以下roomGenreの値によってlabelColorIdみたいなことをするのですが…………
     if(roomGenre == "all"){
-        return [""]; // 直しましたあ、そういうことか()
+        return [""]; // 直しましたあ、そういうことか()はい、1個もないと値を返してくれないので
     }else if(roomGenre == "lab"){
         return ["研究室"];
     }else if(roomGenre == "atelier"){
-        return ["アトリエ", "工房"];
+        return ["アトリエ", "工房", "デッサン"]; // ししししし諸事情により追加なるほど増やしても大丈夫ですかね増やしても大丈夫になるように作ると↓のやばいものになるわけですああああああなので大丈夫です
     }else if(roomGenre == "lecture"){ //一体何が、いけなかったんでしょうかね〜(syamu)😇
         return ["講義室"];
     } 
@@ -122,7 +122,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
     let filtered = allData.filter(
         //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
-        ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
+        ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase())) // 
     ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明
     //うごかないというかまだ完成してないのか名前が昨日のままでしたねほんとだ(もしかしてバグの原因これ?)さっき動かなかったのはそれです
     //すべてがおかしいなラジオを選択し直したら表示ができないになってうこっちでは動いてますリロード
