@@ -93,7 +93,7 @@ function radioFilterProgram() { // ここに適当な名前の関数と処理を
     let roomGenre = document.getElementById('radioFilter').elements['roomGenre'].value;
     //以下roomGenreの値によってlabelColorIdみたいなことをするのですが…………
     if(roomGenre == "all"){
-        return []; // ここは何もない
+        return [""]; // 直しましたあ、そういうことか()
     }else if(roomGenre == "lab"){
         return ["研究室"];
     }else if(roomGenre == "atelier"){
@@ -110,7 +110,6 @@ function radioFilterProgram() { // ここに適当な名前の関数と処理を
 }
 
 //let radioFilterProgram = document.getElementById('radioFilter')
-//あ、中身ゆりさんが書きます？
 //半日掛かりそうもうわからんちょっと正しいか今調べてます…たぶんこれでいいと思います
 //...この場合はHTML側でformの中に入れたので、document.getElementById('radioFilter').elements['roomGenre'].value;で取れないですかね？
 //これの意味は、さっき<form>を作ったのでdocument.getElementById('radioFilter')するとform要素が取れて、その中のinputなどの一覧がelementsとしてアクセスできる→elementsが'roomGenre'なやつのvalueを特定するってことですよねそうです
@@ -125,7 +124,10 @@ function inputFilter(){    //fillBoxの今の内容を取得
         //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
         ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
     ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明
-    //うごかないというかまだ完成してないのか名前が昨日のままでしたねほんとだ(もしかしてバグの原因これ?)
+    //うごかないというかまだ完成してないのか名前が昨日のままでしたねほんとだ(もしかしてバグの原因これ?)さっき動かなかったのはそれです
+    //すべてがおかしいなラジオを選択し直したら表示ができないになってうこっちでは動いてますリロード
+    //他のラジオを押してからすべてをラジオボタンすると何も出てこないあーなるほどincludesの仕様を見てみます…今日はここまでで大丈夫です(((あとでで)))あすみませ挙動するのでとりあえず（）
+    //まじでなにもできてないいいいいいいいいいいいいいいいいいいいいいいいいいいい
     // すみません、さっき配列を返す関数を作ったので、配列の値の数だけ回る処理をかけようと思います
     //今日こそ何もやってない私(名前変えただけ)←え、関数1個書いた←うーん:confused_face:
     //とりあえず走らせますか...あ、HTMLの方checkedを1個付けないと出だしでエラー起こすかも
