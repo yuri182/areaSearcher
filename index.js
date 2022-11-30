@@ -116,37 +116,25 @@ function radioFilterProgram() { // ここに適当な名前の関数と処理を
 //これの意味は、さっき<form>を作ったのでdocument.getElementById('radioFilter')するとform要素が取れて、その中のinputなどの一覧がelementsとしてアクセスできる→elementsが'roomGenre'なやつのvalueを特定するってことですよねそうです
 
 //fillBoxに入れられた文字によってフィルし表示させるもの
-function inputFilter(){
-    //fillBoxの今の内容を取得
-    
-    let inputStrValue = document.getElementById('strFilter').value;
-    let inputValue = radioFilterProgram();
-    inputValue.push(inputStrValue); // pushは値を返さないで、inputValueを直接書き換えるので、let x = y.push(); としてもxには何も入らないのです…だからinputValueに直接語りかけたのかyes
-    // しまった、pushが値を返さない関数であることを忘れてました💀JS初心者なの><
-    //だめでしたね←ちなみに今は動いてます、自由記述欄に入力しないと発火しないだけなんか挙動き挙挙変変
-    //こんぺここんぺここんぺこっていうのかと思った突然のyoutuber
-    //youtuber.pop(you)
-    //
-    
-    // で、一番簡単なのはまず上の二つを合体というわけで、正確には、inputRadioValueがすでに配列だと思うので、それにinputValueを足すということを…
-    //javascriptのArray.pushで検索してみてください
-    //あ〜名前直します。🆗
+function inputFilter(){    //fillBoxの今の内容を取得
+    let inputValue = document.getElementById('fillBox').value;
+    let radioValue = radioFilterProgram();
 
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
-    // で、ここをinputValueの中身の数だけ回すちがうわfor文とかですかねえぇ...
-    // 一番基本的なやり方としては
-    let filtered = allData;
-    for (let value of inputValue) { // あああああああああ
-        filtered = filtered.filter(
-            //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
-            ([name, areaSymbol]) => name.includes(value.toUpperCase())
-        )
-    };
+    let filtered = allData.filter(
+        //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
+        ([name, areaSymbol]) => name.includes(inputValue.toUpperCase())
+    ).filter(
+        ([name, areaSymbol]) => radioValue.some((value) => name.includes(value.toUpperCase()))
+    ); // はいなんてこったい同感
     // すみません、さっき配列を返す関数を作ったので、配列の値の数だけ回る処理をかけようと思います
     //今日こそ何もやってない私(名前変えただけ)←え、関数1個書いた←うーん:confused_face:
     //とりあえず走らせますか...あ、HTMLの方checkedを1個付けないと出だしでエラー起こすかも
     //おうふ
-
+    //さっきは「アトリエ」か「工房」を絞り込むはずが、「アトリエ」と「工房」両方を含むやつを探そうとしてしまいました:かつ35:
+    //ので、今度こそ || を使います…おうふのですが、結構高度な機能を使いそう…えぇ...
+    //やってることさして難しくないはずなのに(口頭で説明できるレベル)いやJSってこういうところがひどい（使いづらい）ので…あああああ
+    //さっきので終わるかと思ってただけに眠すぎるやべえあああああああえーと、では説明を放棄して答えだけ書きますさーせん
     
     
     //フィルされた結果(filtered)をresultのdivに入れると同時にhtml/cssで扱いやすいように変形
