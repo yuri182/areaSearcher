@@ -6,6 +6,14 @@ window.addEventListener('DOMContentLoaded', function(){ // 2 ←なぜなら DOM
     // const searchInput = ;
     // const htmlWrite = ;
     document.getElementById('strFilter').addEventListener('input', inputFilter);
+    // document.getElementsByName('roomGenre') ←この行はもういらない
+    // まずgetElementsByNameの結果をofの後ろに入れられるようにします
+    for (let radio of document.getElementsByName('roomGenre')) {
+        radio.addEventListener('change', inputFilter); // たぶん🆗で、こんどはinputではなく、changeですかねそこに入るのは……？🆗その一個一個がradioに入るので、それを個別に処理
+    };
+    // 挙動が変なのは、ラジオボタンの選択時に何も処理をかけていないからですふぇ↑の処理をラジオボタンの分も用意するというと?調べてます…ouf
+    // document.getElementByName(なんとか).addEventListener(かんとか, inputFilter); までは確か
+    // で、さっき使ったのと同じfor文ですね嫌いなやつだ…何を回すんだ...getElement"s"ByNameでした…IdはElementなのにか複数個取れるのであーそれをforで回す
 });
 
 //csvからデータを取得
@@ -114,8 +122,12 @@ function inputFilter(){
     let inputStrValue = document.getElementById('strFilter').value;
     let inputValue = radioFilterProgram();
     inputValue.push(inputStrValue); // pushは値を返さないで、inputValueを直接書き換えるので、let x = y.push(); としてもxには何も入らないのです…だからinputValueに直接語りかけたのかyes
-    // しまった、pushが値を返さない関数であることを忘れてました💀ohfJS初心者なので＞＜><
-
+    // しまった、pushが値を返さない関数であることを忘れてました💀JS初心者なの><
+    //だめでしたね←ちなみに今は動いてます、自由記述欄に入力しないと発火しないだけなんか挙動き挙挙変変
+    //こんぺここんぺここんぺこっていうのかと思った突然のyoutuber
+    //youtuber.pop(you)
+    //
+    
     // で、一番簡単なのはまず上の二つを合体というわけで、正確には、inputRadioValueがすでに配列だと思うので、それにinputValueを足すということを…
     //javascriptのArray.pushで検索してみてください
     //あ〜名前直します。🆗
