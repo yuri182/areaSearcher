@@ -112,7 +112,9 @@ function inputFilter(){
     //fillBoxの今の内容を取得
     
     let inputStrValue = document.getElementById('strFilter').value;
-    let inputValue = radioFilterProgram().push(inputStrValue); //🆗
+    let inputValue = radioFilterProgram();
+    inputValue.push(inputStrValue); // pushは値を返さないで、inputValueを直接書き換えるので、let x = y.push(); としてもxには何も入らないのです…だからinputValueに直接語りかけたのかyes
+    // しまった、pushが値を返さない関数であることを忘れてました💀ohfJS初心者なので＞＜><
 
     // で、一番簡単なのはまず上の二つを合体というわけで、正確には、inputRadioValueがすでに配列だと思うので、それにinputValueを足すということを…
     //javascriptのArray.pushで検索してみてください
@@ -170,3 +172,5 @@ function labelColorId(areaSymbol){
 function smartLabelColorId(str) { 
     return ` ${[...str][0].toLowerCase()}`;
 }
+
+//動いてない()
