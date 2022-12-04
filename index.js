@@ -1,14 +1,14 @@
 let allData = []; // 1 あ、ちょっと下に行かせてください
 
 //この中の処理はHTMLの要素が全部読み込まれてから動く
-window.addEventListener("DOMContentLoaded", function () { // 2 ←なぜなら DOMContentLoaded がページ読み込み時に働くため
+window.addEventListener("DOMContentLoaded", () => { // 2 ←なぜなら DOMContentLoaded がページ読み込み時に働くため
     getCSV(); // 3 // 14（終了したので戻ってくる）
     // const searchInput = ;
     // const htmlWrite = ;
     document.getElementById("strFilter").addEventListener("input", inputFilter);
     // document.getElementsByName('roomGenre') ←この行はもういらない
     // まずgetElementsByNameの結果をofの後ろに入れられるようにします
-    for (let radio of document.getElementsByName("roomGenre")) {
+    for (const radio of document.getElementsByName("roomGenre")) {
         radio.addEventListener("change", inputFilter); // たぶん🆗で、こんどはinputではなく、changeですかねそこに入るのは……？🆗その一個一個がradioに入るので、それを個別に処理
     }
     // 挙動が変なのは、ラジオボタンの選択時に何も処理をかけていないからですふぇ↑の処理をラジオボタンの分も用意するというと?調べてます…ouf
@@ -18,35 +18,53 @@ window.addEventListener("DOMContentLoaded", function () { // 2 ←なぜなら D
 
 //csvからデータを取得
 function getCSV() { // 4
-    var req = new XMLHttpRequest(); // 5
+    const req = new XMLHttpRequest(); // 5
     req.open("get", "rooms.csv", true); // 6
     req.send(null); // 7
 
     req.onload = function () { // 8
         //関数(convertCSVtoArray)の戻り値(arrList)を入れる
-        allData = convertCSVtoArray(req.responseText); // 9 // 12（戻ってくる）
+        const csvArray = convertCSVtoArray(req.responseText); // 9 // 12（戻ってくる）
         // ↑ 「reqのresponseTextをconvertCSVtoArrayしたものを、allDataに入れる」
         //というかこういう概念がわからない場合は、本当に「なでしこ」とか「プロデル」を触った方がいいかもしれません……（）
         //うーん（なぜなら日本語として読めるので）
+
+        const displayResult = document.getElementById("displayResult");
+
+        allData = csvArray.map((data, index) => {
+            const [ name, areaSymbol ] = data;
+            const arr = document.createElement("div");
+            arr.classList.add("arr");
+            if (index % 2) arr.classList.add("odd-child");
+
+            const areaName = document.createElement("div");
+            areaName.classList.add("areaNum", areaSymbol[0].toLowerCase());
+            areaName.textContent = areaSymbol;
+
+            const roomNameJp = document.createElement("div");
+            roomNameJp.className = "roomNameJp";
+            roomNameJp.textContent = name;
+
+            arr.appendChild(areaName);
+            arr.appendChild(roomNameJp);
+
+            displayResult.appendChild(arr);
+
+            return { csvData: data, htmlElement: arr };
+        });
     };
 } // 13 （なにもせずに終了）
 //csvのデータをjsの配列にコンパイル
 function convertCSVtoArray(str) { // 10
-    var result = [];
-    var tmp = str.split("\r\n");
+    const result = [];
+    const tmp = str.split("\r\n");
 
-    for (var i = 0; i < tmp.length; ++i) {
+    for (let i = 0; i < tmp.length; ++i) {
         result[i] = tmp[i].split(",");
     }
 
     //コンパイルしたデータを1番目以降の要素だけにスライス(0番目の要素をカット)
-    let arrList = result.slice(1).map(e => e.slice(1)); //ここでできるのか
-
-    //初期状態で表示させるもの
-    //html/cssで扱いやすいように変形
-    let htmlWrite = document.getElementById("displayResult");
-    htmlWrite.insertAdjacentHTML("afterbegin", arrList.map(e => `<div class="arr"><div class="areaNum${labelColorId(e[1])}">${e[1]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(""));
-    //ここで使う
+    const arrList = result.slice(1).map(e => e.slice(1)); //ここでできるのか
 
     //関数(convertCSVtoArray)の結果を別の場所で使用可能な形に定義(戻り値)?
     //関数というのは定型処理のことで、例えばarr（入ってきた値）の性質に応じて適切なarrList（出力）を返すものです
@@ -89,8 +107,9 @@ function convertCSVtoArray(str) { // 10
 // 自由記述欄にラジオボタンでフィルターする文字列が勝手に入力されたりしなければいいです。まあそうですね（スタイリングはCSSでどうにでもできます）
 //じゃあこれではい
 
+/*
 function radioFilterProgram() { // ここに適当な名前の関数と処理を、たぶん引数はいらない考えておくので進んでもらっていいです
-    let roomGenre = document.getElementById("radioFilter").elements["roomGenre"].value;
+    const roomGenre = document.getElementById("radioFilter").elements["roomGenre"].value;
     //以下roomGenreの値によってlabelColorIdみたいなことをするのですが…………
     if (roomGenre == "all") {
         return [""]; // 直しましたあ、そういうことか()はい、1個もないと値を返してくれないので
@@ -108,6 +127,7 @@ function radioFilterProgram() { // ここに適当な名前の関数と処理を
     //調べます。その書き方はいいところまで行くのですが、残念ながらアトリエしか返らないと思います
     //次はどうしよう、で、この関数の結果をどこかに入れますinputFilterですかね
 }
+*/
 
 //let radioFilterProgram = document.getElementById('radioFilter')
 //半日掛かりそうもうわからんちょっと正しいか今調べてます…たぶんこれでいいと思います
@@ -116,34 +136,40 @@ function radioFilterProgram() { // ここに適当な名前の関数と処理を
 
 //fillBoxに入れられた文字によってフィルし表示させるもの
 function inputFilter() { //fillBoxの今の内容を取得
-    let inputValue = document.getElementById("strFilter").value;
-    let radioValue = radioFilterProgram();
+    const inputValue = document.getElementById("strFilter").value;
+    const radioValue = document.getElementById("radioFilter").elements.roomGenre.value;
+    const radioFilter = {
+        all: [""],
+        lab: ["研究室"],
+        atelier: ["アトリエ", "工房", "デッサン"],
+        lecture: ["講義室"]
+    }[radioValue];
+    const upperCaseInput = inputValue.toUpperCase();
+    let index = 0;
 
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
-    let filtered = allData.filter(
-        //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
-        ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some(value => name.includes(value.toUpperCase())) //
-    ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明
-    //うごかないというかまだ完成してないのか名前が昨日のままでしたねほんとだ(もしかしてバグの原因これ?)さっき動かなかったのはそれです
-    //すべてがおかしいなラジオを選択し直したら表示ができないになってうこっちでは動いてますリロード
-    //他のラジオを押してからすべてをラジオボタンすると何も出てこないあーなるほどincludesの仕様を見てみます…今日はここまでで大丈夫です(((あとでで)))あすみませ挙動するのでとりあえず（）
-    //まじでなにもできてないいいいいいいいいいいいいいいいいいいいいいいいいいいい
-    // すみません、さっき配列を返す関数を作ったので、配列の値の数だけ回る処理をかけようと思います
-    //今日こそ何もやってない私(名前変えただけ)←え、関数1個書いた←うーん:confused_face:
-    //とりあえず走らせますか...あ、HTMLの方checkedを1個付けないと出だしでエラー起こすかも
-    //おうふ
-    //さっきは「アトリエ」か「工房」を絞り込むはずが、「アトリエ」と「工房」両方を含むやつを探そうとしてしまいました:かつ35:
-    //ので、今度こそ || を使います…おうふのですが、結構高度な機能を使いそう…えぇ...
-    //やってることさして難しくないはずなのに(口頭で説明できるレベル)いやJSってこういうところがひどい（使いづらい）ので…あああああ
-    //さっきので終わるかと思ってただけに眠すぎるやべえあああああああえーと、では説明を放棄して答えだけ書きますさーせん
+    allData.forEach(data => {
+        const name = data.csvData[0];
+        const element = data.htmlElement;
 
-    //フィルされた結果(filtered)をresultのdivに入れると同時にhtml/cssで扱いやすいように変形
-    document.getElementById("displayResult").replaceChildren();
-    document
-        .getElementById("displayResult")
-        .insertAdjacentHTML("afterbegin", filtered.map(e => `<div class="arr"><div class="areaNum${labelColorId(e[1])}">${e[1]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(""));
+        if (name.includes(upperCaseInput) && radioFilter.some(value => name.includes(value))) {
+            // delete style "display: none" from element
+            element.style.display = "";
+
+            if (index % 2) {
+                element.classList.add("odd-child");
+            } else {
+                element.classList.remove("odd-child");
+            }
+            index++;
+        } else {
+            // add style "display: none" to element
+            element.style.display = "none";
+        }
+    });
 }
 
+/*
 //エリアごとに色分けをする関数(labelColorId)
 function labelColorId(areaSymbol) {
     //取得する取得はまず入力がないと始まらないので、上の括弧の中に適当な変数名を…okとりあえず仮置の名前にします
@@ -174,5 +200,6 @@ function labelColorId(areaSymbol) {
 function smartLabelColorId(str) {
     return ` ${[...str][0].toLowerCase()}`;
 }
+*/
 
 //動いてない()
