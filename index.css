@@ -65,14 +65,13 @@
     color: #b6b6b6;
     width: 100%;
     height: 100%;
-    margin-left: 5px;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
     border: 1px solid #b6b6b6;
-    border-radius: 25px;
+    border-radius: 30px;
     white-space: nowrap;
 }
 #radioFilter div:last-child label {
@@ -80,7 +79,6 @@
 }
 #radioFilter input:checked + label {
     background: #e8f0fe;
-    font-weight: 500;
-    color: #fff;
+    color: #1967d2;
     border: 1px solid #1967d2;
 }
