@@ -40,3 +40,14 @@
 .areaNum.r{
     background-color: #6dc0e2;
 }
+
+form{
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    min-width: 320px;
+    max-width: 540px;
+    border-radius: 50%;
+    border: 2px solid #dadce0;
+}
