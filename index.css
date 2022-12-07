@@ -41,13 +41,39 @@
     background-color: #6dc0e2;
 }
 
-form label{
-    background-color: #fff;
+#radioFilter{
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #b6b6b6;
+}
+#radioFilter div{
+    position: relative;
+    flex: 1;
+}
+#radioFilter input{
     width: 100%;
-    margin: auto;
-    padding: 20px;
-    min-width: 320px;
-    max-width: 540px;
-    border-radius: 50%;
-    border: 2px solid #dadce0;
+    height: 60px;
+    opacity: 0;
+}
+#radioFilter label{
+    position: absolute;
+    top: 0; left: 0;
+    color: #b6b6b6;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    border-right: 1px solid #b6b6b6;
+}
+#radioFilter div:last-child label {
+    border-right: 0;
+}
+#radioFilter input:checked + label {
+    background: #1967d2;
+    font-weight: 500;
+    color: #fff;
 }
