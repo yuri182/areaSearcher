@@ -47,6 +47,7 @@ body{
 #radioFilter{
     display: flex;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 #radioFilter div{
     position: relative;
