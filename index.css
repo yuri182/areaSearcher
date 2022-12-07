@@ -52,6 +52,7 @@ body{
     position: relative;
     margin-left: 10px;
     display: inline;
+    width: 100%;
 }
 #radioFilter div:first-child{
     margin-left: 0;
