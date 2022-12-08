@@ -177,28 +177,3 @@ function smartLabelColorId(str) {
 //今日はこれで大丈夫です(一から十までやってもらってしまう)
 //寝ましょう()
 
-var transparentDefaultStr = document.getElementById( 'strFilter' );
-
-transparentDefaultStr.onfocus = function()
-  {
-    if( this.value == this.defaultValue )
-    {
-        this.value = '';
-        this.style.color = '';
-    }
-  }
-
-  // 入力フォーカスを失ったときの処理
-transparentDefaultStr.onblur = function()
-{
-    if( this.value == '' )
-    {
-        this.value = this.defaultValue;
-        this.style.color = 'gray';
-    }
-}
-
-  // 透かし文字をdefaultValueプロパティで保持する
-  transparentDefaultStr.defaultValue = transparentDefaultStr.value;
-  transparentDefaultStr.value = '';
-  transparentDefaultStr.onblur();
