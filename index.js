@@ -122,7 +122,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
     let filtered = allData.filter(
         //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
-        ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase())) // 
+        ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase())) // これはまあなんか暇な時に調べてみてください
     ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明
     //うごかないというかまだ完成してないのか名前が昨日のままでしたねほんとだ(もしかしてバグの原因これ?)さっき動かなかったのはそれです
     //すべてがおかしいなラジオを選択し直したら表示ができないになってうこっちでは動いてますリロード
@@ -174,4 +174,31 @@ function smartLabelColorId(str) {
     return ` ${[...str][0].toLowerCase()}`;
 }
 
-//動いてない()
+//今日はこれで大丈夫です(一から十までやってもらってしまう)
+//寝ましょう()
+
+var transparentDefaultStr = document.getElementById( 'strFilter' );
+
+transparentDefaultStr.onfocus = function()
+  {
+    if( this.value == this.defaultValue )
+    {
+        this.value = '';
+        this.style.color = '';
+    }
+  }
+
+  // 入力フォーカスを失ったときの処理
+transparentDefaultStr.onblur = function()
+{
+    if( this.value == '' )
+    {
+        this.value = this.defaultValue;
+        this.style.color = 'gray';
+    }
+}
+
+  // 透かし文字をdefaultValueプロパティで保持する
+  transparentDefaultStr.defaultValue = transparentDefaultStr.value;
+  transparentDefaultStr.value = '';
+  transparentDefaultStr.onblur();
