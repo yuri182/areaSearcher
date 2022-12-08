@@ -2,6 +2,7 @@
 /* CSSリセット */
 body{
     padding:20px;
+    background-color: #fff;
 }
 #result{
     display: flex;
