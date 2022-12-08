@@ -44,6 +44,14 @@ body{
     background-color: #6dc0e2;
 }
 
+#strFilter{
+    display: flex;
+    height: 50px;
+    border: 1px solid #b6b6b6;
+    color: #b6b6b6;
+    border-radius: 30px;
+    padding: 0 20px;
+}
 #radioFilter{
     display: flex;
     overflow: hidden;
