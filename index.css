@@ -90,9 +90,7 @@ body{
     padding: 0 20px;
     border-image: none;
 }
-#radioFilter div:last-child label {
-    border-right: 0;
-}
+
 #radioFilter input:checked + label {
     background: #e8f0fe;
     color: #1967d2;
