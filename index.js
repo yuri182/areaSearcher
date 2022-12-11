@@ -45,7 +45,7 @@ function convertCSVtoArray(str){ // 10
     //初期状態で表示させるもの
     //html/cssで扱いやすいように変形
     let htmlWrite=document.getElementById('displayResult');
-    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[1])}">${e[1]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[2])}">${e[2]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
     //ここで使う
     
     //関数(convertCSVtoArray)の結果を別の場所で使用可能な形に定義(戻り値)?
@@ -122,25 +122,12 @@ function inputFilter(){    //fillBoxの今の内容を取得
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
     let filtered = allData.filter(
         //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
-        ([name, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase())) // これはまあなんか暇な時に調べてみてください
-    ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明
-    //うごかないというかまだ完成してないのか名前が昨日のままでしたねほんとだ(もしかしてバグの原因これ?)さっき動かなかったのはそれです
-    //すべてがおかしいなラジオを選択し直したら表示ができないになってうこっちでは動いてますリロード
-    //他のラジオを押してからすべてをラジオボタンすると何も出てこないあーなるほどincludesの仕様を見てみます…今日はここまでで大丈夫です(((あとでで)))あすみませ挙動するのでとりあえず（）
-    //まじでなにもできてないいいいいいいいいいいいいいいいいいいいいいいいいいいい
-    // すみません、さっき配列を返す関数を作ったので、配列の値の数だけ回る処理をかけようと思います
-    //今日こそ何もやってない私(名前変えただけ)←え、関数1個書いた←うーん:confused_face:
-    //とりあえず走らせますか...あ、HTMLの方checkedを1個付けないと出だしでエラー起こすかも
-    //おうふ
-    //さっきは「アトリエ」か「工房」を絞り込むはずが、「アトリエ」と「工房」両方を含むやつを探そうとしてしまいました:かつ35:
-    //ので、今度こそ || を使います…おうふのですが、結構高度な機能を使いそう…えぇ...
-    //やってることさして難しくないはずなのに(口頭で説明できるレベル)いやJSってこういうところがひどい（使いづらい）ので…あああああ
-    //さっきので終わるかと思ってただけに眠すぎるやべえあああああああえーと、では説明を放棄して答えだけ書きますさーせん
-    
+        ([name, subName, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase())) // これはまあなんか暇な時に調べてみてください
+    ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明    
     
     //フィルされた結果(filtered)をresultのdivに入れると同時にhtml/cssで扱いやすいように変形
     document.getElementById('displayResult').replaceChildren();
-    document.getElementById('displayResult').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[1])}">${e[1]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
+    document.getElementById('displayResult').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[2])}">${e[2]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
 }
 
 //エリアごとに色分けをする関数(labelColorId)
@@ -173,7 +160,3 @@ function labelColorId(areaSymbol){
 function smartLabelColorId(str) { 
     return ` ${[...str][0].toLowerCase()}`;
 }
-
-//今日はこれで大丈夫です(一から十までやってもらってしまう)
-//寝ましょう()
-
