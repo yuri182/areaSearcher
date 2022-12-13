@@ -120,10 +120,19 @@ function inputFilter(){    //fillBoxの今の内容を取得
     let radioValue = radioFilterProgram();
 
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
-    let filtered = allData.filter(
+//    let filtered = allData.filter(
         //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
-        ([name, subName, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase())) // これはまあなんか暇な時に調べてみてください
-    ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明    
+//        ([name, subName, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
+         // これはまあなんか暇な時に調べてみてください
+//    ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明    
+
+    let filtered = allData.filter(
+        ([name, subName, areaSymbol])=>{
+            const nameFilter = name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
+            const subNameFilter = subName.includes(inputValue.toUpperCase()) && radioValue.some((value) => subName.includes(value.toUpperCase()))
+            return nameFilter && subNameFilter;
+        }
+    )
     
     //フィルされた結果(filtered)をresultのdivに入れると同時にhtml/cssで扱いやすいように変形
     document.getElementById('displayResult').replaceChildren();
