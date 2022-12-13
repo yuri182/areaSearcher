@@ -130,7 +130,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
         ([name, subName, areaSymbol])=>{
             const nameFilter = name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
             const subNameFilter = subName.includes(inputValue.toUpperCase()) && radioValue.some((value) => subName.includes(value.toUpperCase()))
-            return nameFilter && subNameFilter;
+            return nameFilter || subNameFilter;
         }
     )
     
