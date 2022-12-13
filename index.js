@@ -124,7 +124,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
 
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
     let filtered = allData.filter(
-        ([roomNum,name, subName, areaSymbol])=>{
+        ([roomNum, name, subName, areaSymbol])=>{
             const nameFilter = name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
             const subNameFilter = subName.includes(inputValue.toUpperCase()) && radioValue.some((value) => subName.includes(value.toUpperCase()))
             return nameFilter || subNameFilter;
