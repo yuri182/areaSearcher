@@ -141,25 +141,25 @@ function inputFilter(){    //fillBoxの今の内容を取得
 function labelColorId(areaSymbol){
     //取得する取得はまず入力がないと始まらないので、上の括弧の中に適当な変数名を…okとりあえず仮置の名前にします
     // 括弧に入れた名前はこの関数内でしか有効でないので、名前は勝手に決めていいです...🆗これで入力されてくる値はこの関数の中でfigureと呼ばれることになるので、それを使っていきましょうok
-    if(areaSymbol.slice(1,2) == "A"){
+    if(areaSymbol.slice(0,1) == "A"){
         return " a";
-    }else if(areaSymbol.slice(2,3) == "B"){
+    }else if(areaSymbol.slice(0,1) == "B"){
         return " b";
-    }else if(areaSymbol.slice(1,2) == "C"){
+    }else if(areaSymbol.slice(0,1) == "C"){
         return " c";
-    }else if(areaSymbol.slice(1,2) == "D"){
+    }else if(areaSymbol.slice(0,1) == "D"){
         return " d";
-    }else if(areaSymbol.slice(1,2) == "E"){
+    }else if(areaSymbol.slice(0,1) == "E"){
         return " e";
-    }else if(areaSymbol.slice(1,2) == "F"){
+    }else if(areaSymbol.slice(0,1) == "F"){
         return " f";
-    }else if(areaSymbol.slice(1,2) == "G"){
+    }else if(areaSymbol.slice(0,1) == "G"){
         return " g";
-    }else if(areaSymbol.slice(1,2) == "P"){
+    }else if(areaSymbol.slice(0,1) == "P"){
         return " p";
-    }else if(areaSymbol.slice(1,2) == "Q"){
+    }else if(areaSymbol.slice(0,1) == "Q"){
         return " q";
-    }else if(areaSymbol.slice(1,2) == "R"){
+    }else if(areaSymbol.slice(0,1) == "R"){
         return " r";
     }
 }
