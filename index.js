@@ -45,7 +45,10 @@ function convertCSVtoArray(str){ // 10
     //初期状態で表示させるもの
     //html/cssで扱いやすいように変形
     let htmlWrite=document.getElementById('displayResult');
-    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[2])}">${e[2]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
+//    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[2])}">${e[2]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
+
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="roomNum">${e[0]}</div><div class="areaNum${labelColorId(e[3])}">${e[3]}</div><div class="roomNameJp">${e[1]}</div></div>`).join(''));
+
     //ここで使う
     
     //関数(convertCSVtoArray)の結果を別の場所で使用可能な形に定義(戻り値)?
@@ -120,12 +123,6 @@ function inputFilter(){    //fillBoxの今の内容を取得
     let radioValue = radioFilterProgram();
 
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
-//    let filtered = allData.filter(
-        //fillBoxに入力されたもの(inputValue)を0番目の値(ここではname)と大文字小文字関係なく照合させてフィルする
-//        ([name, subName, areaSymbol]) => name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
-         // これはまあなんか暇な時に調べてみてください
-//    ); // はいなんてこったい同感こんな深くなるとは思わなかった…JSは悪い文明    
-
     let filtered = allData.filter(
         ([name, subName, areaSymbol])=>{
             const nameFilter = name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
@@ -136,32 +133,33 @@ function inputFilter(){    //fillBoxの今の内容を取得
     
     //フィルされた結果(filtered)をresultのdivに入れると同時にhtml/cssで扱いやすいように変形
     document.getElementById('displayResult').replaceChildren();
-    document.getElementById('displayResult').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[2])}">${e[2]}</div><div class="roomNameJp">${e[0]}</div></div>`).join(''));
+    
+    document.getElementById('displayResult').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNum">${e[0]}</div><div class="areaNum${labelColorId(e[3])}">${e[3]}</div><div class="roomNameJp">${e[1]}</div></div>`).join(''));
 }
 
 //エリアごとに色分けをする関数(labelColorId)
 function labelColorId(areaSymbol){
     //取得する取得はまず入力がないと始まらないので、上の括弧の中に適当な変数名を…okとりあえず仮置の名前にします
     // 括弧に入れた名前はこの関数内でしか有効でないので、名前は勝手に決めていいです...🆗これで入力されてくる値はこの関数の中でfigureと呼ばれることになるので、それを使っていきましょうok
-    if(areaSymbol.slice(0,1) == "A"){
+    if(areaSymbol.slice(1,2) == "A"){
         return " a";
-    }else if(areaSymbol.slice(0,1) == "B"){
+    }else if(areaSymbol.slice(1,2) == "B"){
         return " b";
-    }else if(areaSymbol.slice(0,1) == "C"){
+    }else if(areaSymbol.slice(1,2) == "C"){
         return " c";
-    }else if(areaSymbol.slice(0,1) == "D"){
+    }else if(areaSymbol.slice(1,2) == "D"){
         return " d";
-    }else if(areaSymbol.slice(0,1) == "E"){
+    }else if(areaSymbol.slice(1,2) == "E"){
         return " e";
-    }else if(areaSymbol.slice(0,1) == "F"){
+    }else if(areaSymbol.slice(1,2) == "F"){
         return " f";
-    }else if(areaSymbol.slice(0,1) == "G"){
+    }else if(areaSymbol.slice(1,2) == "G"){
         return " g";
-    }else if(areaSymbol.slice(0,1) == "P"){
+    }else if(areaSymbol.slice(1,2) == "P"){
         return " p";
-    }else if(areaSymbol.slice(0,1) == "Q"){
+    }else if(areaSymbol.slice(1,2) == "Q"){
         return " q";
-    }else if(areaSymbol.slice(0,1) == "R"){
+    }else if(areaSymbol.slice(1,2) == "R"){
         return " r";
     }
 }
