@@ -41,7 +41,7 @@ function convertCSVtoArray(str){ // 10
 
     //コンパイルしたデータを1番目以降の要素だけにスライス(0番目の要素をカット)
 //    let arrList = result.slice(1).map(e=>e.slice(1))//ここでできるのか
-    let arrList = result
+    let arrList = result.slice(1)
     //初期状態で表示させるもの
     //html/cssで扱いやすいように変形
     let htmlWrite=document.getElementById('displayResult');
@@ -124,7 +124,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
 
     //さっきの関数の戻り値（allDataに入っている）の特定の値と照合・絞り込み
     let filtered = allData.filter(
-        ([name, subName, areaSymbol])=>{
+        ([roomNum,name, subName, areaSymbol])=>{
             const nameFilter = name.includes(inputValue.toUpperCase()) && radioValue.some((value) => name.includes(value.toUpperCase()))
             const subNameFilter = subName.includes(inputValue.toUpperCase()) && radioValue.some((value) => subName.includes(value.toUpperCase()))
             return nameFilter || subNameFilter;
@@ -143,7 +143,7 @@ function labelColorId(areaSymbol){
     // 括弧に入れた名前はこの関数内でしか有効でないので、名前は勝手に決めていいです...🆗これで入力されてくる値はこの関数の中でfigureと呼ばれることになるので、それを使っていきましょうok
     if(areaSymbol.slice(1,2) == "A"){
         return " a";
-    }else if(areaSymbol.slice(1,2) == "B"){
+    }else if(areaSymbol.slice(2,3) == "B"){
         return " b";
     }else if(areaSymbol.slice(1,2) == "C"){
         return " c";
