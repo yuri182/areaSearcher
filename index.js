@@ -40,8 +40,8 @@ function convertCSVtoArray(str){ // 10
     }   
 
     //コンパイルしたデータを1番目以降の要素だけにスライス(0番目の要素をカット)
-    let arrList = result.slice(1).map(e=>e.slice(1))//ここでできるのか
-
+//    let arrList = result.slice(1).map(e=>e.slice(1))//ここでできるのか
+    let arrList = result
     //初期状態で表示させるもの
     //html/cssで扱いやすいように変形
     let htmlWrite=document.getElementById('displayResult');
@@ -133,7 +133,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
     
     //フィルされた結果(filtered)をresultのdivに入れると同時にhtml/cssで扱いやすいように変形
     document.getElementById('displayResult').replaceChildren();
-    
+
     document.getElementById('displayResult').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="roomNum">${e[0]}</div><div class="areaNum${labelColorId(e[3])}">${e[3]}</div><div class="roomNameJp">${e[1]}</div></div>`).join(''));
 }
 
