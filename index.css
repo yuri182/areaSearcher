@@ -119,6 +119,7 @@ body{
     border-radius: 30px;
     background: none;
     outline: none;
+    flex-wrap: wrap;
 }
 #buttonFilter button:first-child{
     margin-left: 0;
