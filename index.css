@@ -108,6 +108,7 @@ body{
 #buttonFilter{
     display: flex;
     margin-bottom: 10px;
+    margin-left: -10px;
     flex-flow: wrap;
 }
 #buttonFilter button{
@@ -120,9 +121,6 @@ body{
     border-radius: 30px;
     background: none;
     outline: none;
-}
-#buttonFilter button:first-child{
-    margin-left: 0;
 }
 #buttonFilter span{
     display: flex;
