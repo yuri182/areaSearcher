@@ -121,6 +121,9 @@ body{
     color: #b6b6b6;
     background: #fff;
 }
+#buttonFilter span:first-child{
+    margin-left: 0;
+}
 
 #radioFilter span#onclick{
     background: #e8f0fe;
