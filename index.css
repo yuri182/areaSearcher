@@ -104,3 +104,26 @@ body{
     color: #1967d2;
     border: 1px solid #1967d2;
 }
+
+#buttonFilter{
+    display: flex;
+    margin-bottom: 10px;
+}
+#buttonFilter span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin-left: 10px;
+    border: 1px solid #b6b6b6;
+    border-radius: 30px;
+    padding: 0 20px;
+    color: #b6b6b6;
+    background: #fff;
+}
+
+#radioFilter span#onclick{
+    background: #e8f0fe;
+    color: #1967d2;
+    border: 1px solid #1967d2;
+}
