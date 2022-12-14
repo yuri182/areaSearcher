@@ -111,6 +111,11 @@ body{
     margin-left: -10px;
     flex-flow: wrap;
 }
+#buttonFilter div{
+    display: flex;
+    margin-bottom: 0 2px;
+    flex-flow: wrap;
+}
 #buttonFilter button{
     display: flex;
     align-items: center;
