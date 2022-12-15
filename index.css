@@ -55,48 +55,47 @@ body{
 }
 
 #strFilter{
-    height: 50px;
-    width: 100%;
-    border: 1px solid #b6b6b6;
-    color: #b6b6b6;
-    border-radius: 30px;
-    padding: 0 20px;
+    display: flex;
     margin-bottom: 10px;
+    margin-left: -8px;
+    flex-flow: wrap;
 }
 #radioFilter{
-    display: flex;
-    overflow: hidden;
-    margin-bottom: 10px;
+
 }
 #radioFilter div{
     position: relative;
-    margin-left: 10px;
-    display: inline;
-    width: 100%;
+    display: flex;
+    margin: 4px 0 4px 8px;
+    flex-flow: wrap;
 }
 #radioFilter div:first-child{
     margin-left: 0;
 }
 #radioFilter input{
-
-    height: 50px;
-    width: 100%;
-    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0);
+    border-radius: 30px;
+    background: none;
+    outline: none;
+    cursor: pointer;
 }
 #radioFilter label{
     position: absolute;
     top: 0; left: 0;
-    color: #b6b6b6;
-    height: 100%;
-    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
+    height: 100%;
+    width: 100%;
     border: 1px solid #b6b6b6;
     border-radius: 30px;
     padding: 0 20px;
-    border-image: none;
+    color: #404040;
+    background: #fff;
 }
 
 #radioFilter input:checked + label {
