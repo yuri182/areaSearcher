@@ -14,10 +14,12 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 5px;
+    height: 45px;
+    padding: 5px 0;
+    border-bottom: 1px solid #b6b6b6;
 }
-.arr:nth-child(2n-1){
-    background-color: #f0f0f0;
+.arr:last-child{
+    border-bottom: none;
 }
 .roomNum{
     color: #808080;
@@ -25,19 +27,22 @@ body{
 }
 .area{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    width: 34px;
+    width: 30px;
+    margin-right: 10px;
 }
 .areaNum{
     display: flex;
     justify-content: center;
     align-items: center;
     color:#404040;
+    font-size:24px;
 }
 .areaCol{
-    width: 4px;
-    padding: 5px;
+    display: flex;
+    width: 6px;
+    height: 24px;
     margin-right: 5px;
 }
 .areaCol.a,.areaCol.b{
