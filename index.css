@@ -33,25 +33,25 @@ body{
     border-radius: 3px;
 }
 .areaNum.a,.areaNum.b{
-    background-color: #ed7459;
+    background-color: #e43a1f;
 }
 .areaNum.c{
-    background-color: #5abc97;
+    background-color: #56b54c;
 }
 .areaNum.d,.areaNum.e{
-    background-color: #a5cd43;
+    background-color: #cfca24;
 }
 .areaNum.f,.areaNum.g{
-    background-color: #e95b98;
+    background-color: #e55d9d;
 }
 .areaNum.p{
-    background-color: #aa9fc8;
+    background-color: #7266ac;
 }
 .areaNum.q{
-    background-color: #f8b866;
+    background-color: #f09442;
 }
 .areaNum.r{
-    background-color: #6dc0e2;
+    background-color: #34b2da;
 }
 
 #strFilter{
