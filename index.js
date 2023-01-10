@@ -45,7 +45,7 @@ function convertCSVtoArray(str){ // 10
     //初期状態で表示させるもの
     //html/cssで扱いやすいように変形
     let htmlWrite=document.getElementById('displayResult');
-    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[3])}">${e[3]}</div><div class="roomNameJp">${e[1]}</div><div class="roomNum">${e[0]}</div></div>`).join(''));
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="areaNum${labelColorId(e[3])}"></div><p>${e[3]}</p><div class="roomNameJp">${e[1]}</div><div class="roomNum">${e[0]}</div></div>`).join(''));
 
     return arrList;// ここを順番としては11 
 }
