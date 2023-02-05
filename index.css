@@ -76,9 +76,6 @@ body{
     padding: 0 20px;
     margin-bottom: 10px;
 }
-#radio{
-    display: inline-block;
-}
 #radioFilter{
     display: flex;
     overflow: hidden;
@@ -105,8 +102,9 @@ body{
     color: #b6b6b6;
     height: 100%;
     background: #fff;
-    display: inline-block;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
     border: 1px solid #b6b6b6;
     border-radius: 30px;
