@@ -45,7 +45,7 @@ function convertCSVtoArray(str){ // 10
     //初期状態で表示させるもの
     //html/cssで扱いやすいように変形
     let htmlWrite=document.getElementById('displayResult');
-    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="area"><div class="areaCol${labelColorId(e[3])}"></div><div class="areaNum">${e[3]}</div></div><div class="roomNameJp">${e[1]}</div><div class="roomNum">${e[0]}</div></div>`).join(''));
+    htmlWrite.insertAdjacentHTML('afterbegin',arrList.map((e)=>`<div class="arr"><div class="area"><div class="areaCol${labelColorId(e[3])}"></div><div class="areaNum">${e[3]}</div></div><div class="roomNameJp">${e[1]}</div></div>`).join(''));
 
     return arrList;// ここを順番としては11 
 }
@@ -85,7 +85,7 @@ function inputFilter(){    //fillBoxの今の内容を取得
     //フィルされた結果(filtered)をresultのdivに入れると同時にhtml/cssで扱いやすいように変形
     document.getElementById('displayResult').replaceChildren();
 
-    document.getElementById('displayResult').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="area"><div class="areaCol${labelColorId(e[3])}"></div><div class="areaNum">${e[3]}</div></div><div class="roomNameJp">${e[1]}</div><div class="roomNum">${e[0]}</div></div>`).join(''));
+    document.getElementById('displayResult').insertAdjacentHTML('afterbegin',filtered.map((e)=>`<div class="arr"><div class="area"><div class="areaCol${labelColorId(e[3])}"></div><div class="areaNum">${e[3]}</div></div><div class="roomNameJp">${e[1]}</div></div>`).join(''));
 }
 
 //エリアごとに色分けをする関数(labelColorId)
