@@ -81,16 +81,14 @@ body{
     overflow: hidden;
     margin-bottom: 10px;
     flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 5px;
 }
 #radioFilter label{
     position: relative;
-    margin-left: 10px;
-    padding: 5px;
     display: inline;
 }
-#radioFilter label:first-child{
-    margin-left: 0;
-}
+
 #radioFilter input{
     position:absolute;
     height: 0px;
