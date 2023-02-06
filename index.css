@@ -85,22 +85,18 @@ body{
     position: relative;
     margin-left: 10px;
     display: inline;
-    width: 100%;
 }
 #radioFilter div:first-child{
     margin-left: 0;
 }
 #radioFilter input{
-
-    height: 50px;
-    width: 100%;
+    position:absolute;
+    height: 0px;
+    width: 0px;
     opacity: 0;
 }
 #radioFilter label{
-    position: absolute;
-    top: 0; left: 0;
     color: #b6b6b6;
-    height: 100%;
     background: #fff;
     display: flex;
     align-items: center;
