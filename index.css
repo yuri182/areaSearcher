@@ -81,12 +81,12 @@ body{
     overflow: hidden;
     margin-bottom: 10px;
 }
-#radioFilter div{
+#radioFilter label{
     position: relative;
     margin-left: 10px;
     display: inline;
 }
-#radioFilter div:first-child{
+#radioFilter label:first-child{
     margin-left: 0;
 }
 #radioFilter input{
@@ -95,7 +95,7 @@ body{
     width: 0px;
     opacity: 0;
 }
-#radioFilter label{
+#radioFilter div{
     color: #b6b6b6;
     background: #fff;
     display: flex;
@@ -108,7 +108,7 @@ body{
     border-image: none;
 }
 
-#radioFilter input:checked + label {
+#radioFilter input:checked + div {
     background: #e8f0fe;
     color: #1967d2;
     border: 1px solid #1967d2;
