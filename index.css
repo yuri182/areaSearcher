@@ -81,8 +81,8 @@ body{
     overflow: hidden;
     margin-bottom: 10px;
     flex-wrap: wrap;
-    column-gap: 7.5px;
-    row-gap: 5px;
+    column-gap: 5px;
+    row-gap: 7.5px;
 }
 #radioFilter label{
     position: relative;
