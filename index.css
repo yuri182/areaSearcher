@@ -80,10 +80,12 @@ body{
     display: flex;
     overflow: hidden;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 #radioFilter label{
     position: relative;
     margin-left: 10px;
+    padding: 5px;
     display: inline;
 }
 #radioFilter label:first-child{
@@ -104,8 +106,9 @@ body{
     pointer-events: none;
     border: 1px solid #b6b6b6;
     border-radius: 30px;
-    padding: 0 20px;
+    padding: 5px 20px;
     border-image: none;
+    white-space: nowrap;
 }
 
 #radioFilter input:checked + div {
