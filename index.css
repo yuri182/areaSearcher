@@ -124,6 +124,9 @@ body{
     color: #00a0e9;
     border: 1px solid #00a0e9;
 }
+#displayResult{
+    margin-bottom: 50px;
+}
 #enquete{
     display: flex;
     background-color: #00a0e9;
