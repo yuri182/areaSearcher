@@ -124,3 +124,12 @@ body{
     color: #00a0e9;
     border: 1px solid #00a0e9;
 }
+#enquete{
+    display: flex;
+    background-color: #00a0e9;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    right: 10px; bottom: 0px;
+    z-index: 1000;
+}
