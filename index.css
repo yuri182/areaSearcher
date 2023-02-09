@@ -76,7 +76,13 @@ body{
 .areaCol.r{
     background-color: #34b2da;
 }
-
+#icon{
+    display: flex;
+    justify-content: start;
+}
+#icon img{
+    width: 100px;
+}
 #strFilter{
     height: 50px;
     width: 100%;
