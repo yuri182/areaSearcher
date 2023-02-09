@@ -79,6 +79,7 @@ body{
 #icon{
     display: flex;
     justify-content: start;
+    margin-bottom: 20px;
 }
 #icon img{
     width: 100px;
